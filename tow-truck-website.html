@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Towmotive — 24/7 Emergency Towing & Roadside Assistance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --blue: #1165F2;
+            --blue-deep: #0a3dbf;
+            --blue-soft: #e8f0ff;
+            --green: #8CCB12;
+            --green-deep: #6aab00;
+            --green-bright: #a8e020;
+            --charcoal: #0a0f1a;
+            --charcoal-deep: #050508;
+            --charcoal-soft: #131a2a;
+            --ink: #0d1525;
+            --ink-soft: #2a3142;
+            --muted: #6a7585;
+            --muted-soft: #9ba5b8;
+            --line: #e6eaf0;
+            --surface: #ffffff;
+            --surface-alt: #f6f8fb;
+            --shadow-sm: 0 1px 2px rgba(13,21,37,0.04), 0 2px 8px rgba(13,21,37,0.04);
+            --shadow-md: 0 4px 12px rgba(13,21,37,0.06), 0 12px 32px rgba(13,21,37,0.08);
+            --shadow-lg: 0 12px 40px rgba(13,21,37,0.12), 0 24px 60px rgba(13,21,37,0.10);
+            --shadow-blue: 0 8px 24px rgba(17,101,242,0.18), 0 16px 48px rgba(17,101,242,0.12);
+            --shadow-green: 0 8px 20px rgba(140,203,18,0.28), 0 12px 32px rgba(140,203,18,0.18);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--surface);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img { max-width: 100%; display: block; }
+
+        h1, h2, h3, h4 { color: var(--ink); letter-spacing: -0.01em; }
+
+        /* ──────────────────────────────────────────────────────────
+           HEADER
+        ────────────────────────────────────────────────────────── */
+        .top-banner {
+            background: linear-gradient(90deg, var(--green-deep) 0%, var(--green) 50%, var(--green-bright) 100%);
+            color: var(--charcoal-deep);
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0.55rem 1rem;
+            position: relative;
+            z-index: 1001;
+        }
+        .top-banner a { color: inherit; text-decoration: none; }
+        .top-banner a:hover { text-decoration: underline; }
+
+        header {
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: saturate(180%) blur(14px);
+            -webkit-backdrop-filter: saturate(180%) blur(14px);
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+            position: relative;
+            width: 130px;
+            height: 56px;
+            overflow: hidden;
+        }
+
+        .logo-img {
+            height: 75px;
+            width: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: contain;
+        }
+
+        nav.primary {
+            display: flex;
+            align-items: center;
+            gap: 2.25rem;
+        }
+
+        nav.primary a {
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            transition: color 0.2s;
+            position: relative;
+        }
+        nav.primary a::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: -6px;
+            height: 2px;
+            background: var(--blue);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.25s ease;
+        }
+        nav.primary a:hover { color: var(--blue); }
+        nav.primary a:hover::after { transform: scaleX(1); }
+
+        .call-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--green-deep) 0%, var(--green) 55%, var(--green-bright) 100%);
+            color: var(--charcoal-deep);
+            padding: 0.65rem 1.25rem;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.88rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            box-shadow: var(--shadow-green);
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+        .call-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(140,203,18,0.42);
+        }
+        .call-cta svg { width: 16px; height: 16px; }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2.5px;
+            background: var(--ink);
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform-origin: center;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+        /* Mobile nav panel */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 88%;
+            max-width: 360px;
+            background: #fff;
+            z-index: 1050;
+            padding: 5rem 1.5rem 2rem;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+            box-shadow: -16px 0 40px rgba(0,0,0,0.12);
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .mobile-nav.open { transform: translateX(0); }
+
+        .mobile-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 1rem 0.25rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--line);
+            transition: color 0.2s;
+        }
+        .mobile-nav a:hover { color: var(--blue); }
+
+        .mobile-nav .mobile-cta {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            border-bottom: none !important;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--green-deep) 0%, var(--green) 55%, var(--green-bright) 100%);
+            color: var(--charcoal-deep);
+            font-weight: 800;
+            justify-content: center;
+            box-shadow: var(--shadow-green);
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10,15,26,0.45);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            z-index: 1040;
+        }
+        .mobile-overlay.open { opacity: 1; pointer-events: all; }
+
+        /* ──────────────────────────────────────────────────────────
+           HERO
+        ────────────────────────────────────────────────────────── */
+        .hero {
+            background: var(--surface);
+            padding: 0 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(17,101,242,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -200px; left: -200px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(140,203,18,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: stretch;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+            min-height: clamp(520px, 70vh, 720px);
+        }
+
+        .hero-content {
+            padding: 5rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: var(--blue-soft);
+            color: var(--blue-deep);
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.4rem 0.85rem;
+            border-radius: 999px;
+            margin-bottom: 1.25rem;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 0 4px rgba(140,203,18,0.2);
+            animation: pulse 1.8s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0.75; }
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', 'Inter', sans-serif;
+            font-size: clamp(3.25rem, 7.5vw, 6rem);
+            font-weight: 400;
+            line-height: 0.95;
+            letter-spacing: 0.005em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+            color: var(--ink);
+        }
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 55%, #4a82ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero h1 .accent-green {
+            background: linear-gradient(135deg, var(--green-deep) 0%, var(--green) 55%, var(--green-bright) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-lead {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--ink-soft);
+            max-width: 36rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 0.85rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.25rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.95rem 1.65rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.98rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+            white-space: nowrap;
+        }
+        .btn svg { width: 18px; height: 18px; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--green-deep) 0%, var(--green) 55%, var(--green-bright) 100%);
+            color: var(--charcoal-deep);
+            box-shadow: var(--shadow-green);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(140,203,18,0.5);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--ink);
+            border: 1.5px solid var(--line);
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-secondary:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(17,101,242,0.15);
+        }
+
+        .hero-trust {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .trust-avatars {
+            display: flex;
+        }
+        .trust-avatars span {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.78rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: -10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .trust-avatars span:first-child { margin-left: 0; }
+        .trust-avatars span:nth-child(2) { background: linear-gradient(135deg, var(--green), var(--green-deep)); color: var(--charcoal-deep); }
+        .trust-avatars span:nth-child(3) { background: linear-gradient(135deg, #4a82ff, var(--blue)); }
+        .trust-avatars span:nth-child(4) { background: linear-gradient(135deg, var(--green-bright), var(--green)); color: var(--charcoal-deep); }
+        .trust-avatars span:nth-child(5) { background: linear-gradient(135deg, #6a96e8, #4a82ff); }
+
+        .trust-text strong {
+            display: block;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--ink);
+        }
+        .trust-text small {
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+        .trust-stars { color: #f5b800; font-size: 0.85rem; }
+
+        .hero-media {
+            position: relative;
+            overflow: hidden;
+            background: var(--charcoal);
+            margin-right: calc(50% - 50vw);
+            align-self: stretch;
+        }
+        .hero-media img,
+        .hero-media .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 1.25rem;
+            left: 1.25rem;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 0.85rem 1.1rem;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: var(--shadow-md);
+        }
+        .hero-badge-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        .hero-badge-icon svg { width: 20px; height: 20px; }
+        .hero-badge-text strong {
+            display: block;
+            font-size: 0.92rem;
+            color: var(--ink);
+            font-weight: 800;
+        }
+        .hero-badge-text small {
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        /* ──────────────────────────────────────────────────────────
+           SERVICES — Icon row layout (reference-inspired)
+        ────────────────────────────────────────────────────────── */
+        .services {
+            background: var(--surface);
+            padding: 5rem 1.5rem 6rem;
+            position: relative;
+        }
+        .services-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 50rem;
+            margin: 0 auto 3.5rem;
+        }
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 0.85rem;
+        }
+        .section-title {
+            font-family: 'Bebas Neue', 'Inter', sans-serif;
+            font-size: clamp(2.85rem, 6vw, 4.5rem);
+            font-weight: 400;
+            line-height: 0.98;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            color: var(--ink);
+            margin-bottom: 0.85rem;
+        }
+        .section-title .accent {
+            background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 55%, #4a82ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--ink-soft);
+            line-height: 1.7;
+        }
+
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid var(--line);
+        }
+
+        .service-row {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            padding: 1.85rem 0.5rem;
+            border-bottom: 1px solid var(--line);
+            transition: padding 0.25s ease, background 0.25s ease;
+            position: relative;
+        }
+        .service-row:hover {
+            background: rgba(17, 101, 242, 0.03);
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .service-row::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 0;
+            height: 1px;
+            background: var(--blue);
+            transition: width 0.4s ease;
+        }
+        .service-row:hover::after { width: 100%; }
+
+        .service-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--green-deep) 0%, var(--green) 55%, var(--green-bright) 100%);
+            color: var(--charcoal-deep);
+            box-shadow: 0 6px 16px rgba(140,203,18,0.22);
+            transition: transform 0.25s ease;
+        }
+        .service-icon svg { width: 28px; height: 28px; }
+        .service-row:hover .service-icon { transform: scale(1.06) rotate(-3deg); }
+
+        .service-row:nth-child(even) .service-icon {
+            background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 55%, #4a82ff 100%);
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(17,101,242,0.25);
+        }
+
+        .service-row h3 {
+            font-family: 'Bebas Neue', 'Inter', sans-serif;
+            font-size: 1.85rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--ink);
+            line-height: 1.1;
+            flex: 0 0 auto;
+            min-width: 17rem;
+            transition: color 0.2s;
+        }
+        .service-row:hover h3 { color: var(--blue); }
+
+        .service-row p {
+            font-size: 1rem;
+            color: var(--ink-soft);
+            line-height: 1.6;
+            flex: 1;
+            margin: 0;
+        }
+
+        .service-row-cta {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ink);
+            transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
+        }
+        .service-row-cta svg { width: 18px; height: 18px; }
+        .service-row:hover .service-row-cta {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff;
+            transform: translate(4px, -4px);
+        }
+
+        /* ──────────────────────────────────────────────────────────
+           INSURANCE CAROUSEL
+        ────────────────────────────────────────────────────────── */
+        .insurance-section {
+            background: var(--surface);
+            padding: 5rem 1.5rem 4.5rem;
+        }
+        .insurance-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .insurance-ticker {
+            width: 100%;
+            overflow: hidden;
+            padding: 1rem 0;
+            margin-top: 0.5rem;
+            position: relative;
+        }
+        .insurance-ticker::before,
+        .insurance-ticker::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .insurance-ticker::before { left: 0;  background: linear-gradient(to right, var(--surface), transparent); }
+        .insurance-ticker::after  { right: 0; background: linear-gradient(to left,  var(--surface), transparent); }
+
+        .insurance-ticker-track {
+            display: flex;
+            gap: 3rem;
+            width: max-content;
+            animation: ticker-scroll 32s linear infinite;
+            align-items: center;
+        }
+        .insurance-ticker:hover .insurance-ticker-track { animation-play-state: paused; }
+        @keyframes ticker-scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .ticker-logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            opacity: 0.78;
+            transition: opacity 0.2s;
+        }
+        .ticker-logo:hover { opacity: 1; }
+        .ticker-logo img {
+            height: 130px;
+            width: 320px;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        /* ──────────────────────────────────────────────────────────
+           GALLERY — charcoal
+        ────────────────────────────────────────────────────────── */
+        .gallery {
+            background: var(--charcoal);
+            padding: 5rem 1.5rem 5rem;
+            color: #fff;
+            position: relative;
+        }
+        .gallery-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .gallery .section-eyebrow { color: var(--green-bright); }
+        .gallery .section-title { color: #fff; }
+        .gallery .section-title .accent {
+            background: linear-gradient(135deg, #c8d8f8 0%, #6a96e8 40%, var(--blue) 70%, #5b9fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gallery .section-subtitle { color: #a8b3c8; }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            background: var(--charcoal-soft);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 16px 40px rgba(17,101,242,0.28);
+            z-index: 2;
+        }
+        .gallery-item img,
+        .gallery-item svg {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.06); }
+
+        /* ──────────────────────────────────────────────────────────
+           STATS — charcoal continuation
+        ────────────────────────────────────────────────────────── */
+        .stats-wrapper {
+            background: var(--charcoal);
+            padding: 1rem 1.5rem 5rem;
+        }
+        .stats {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .stat-box {
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+        .stat-number {
+            font-family: 'Bebas Neue', 'Inter', sans-serif;
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 0.02em;
+            background: linear-gradient(135deg, #fff 0%, #c8d8f8 50%, #8ab4f8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.45rem;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: #a8b3c8;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        /* ──────────────────────────────────────────────────────────
+           REVIEWS — white
+        ────────────────────────────────────────────────────────── */
+        .reviews-section {
+            background: var(--surface);
+            padding: 5rem 1.5rem 6rem;
+        }
+        .reviews-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .google-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--surface-alt);
+            border: 1px solid var(--line);
+            padding: 0.6rem 1.15rem;
+            border-radius: 999px;
+            margin-bottom: 2.5rem;
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+            font-weight: 600;
+        }
+        .google-logo {
+            font-weight: 900;
+            background: linear-gradient(to right, #4285F4, #34A853, #FBBC04, #EA4335);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1rem;
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            text-align: left;
+        }
+        .review-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 1.65rem 1.5rem 1.75rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(17,101,242,0.2);
+        }
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .reviewer-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.95rem;
+            background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+            flex-shrink: 0;
+        }
+        .review-card:nth-child(3n+2) .reviewer-avatar {
+            background: linear-gradient(135deg, var(--green), var(--green-deep));
+            color: var(--charcoal-deep);
+        }
+        .review-card:nth-child(3n+3) .reviewer-avatar {
+            background: linear-gradient(135deg, #4a82ff, var(--blue));
+        }
+        .reviewer-info h4 {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.15rem;
+        }
+        .reviewer-company {
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+        .stars {
+            color: #f5b800;
+            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+        }
+        .review-text {
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            flex: 1;
+        }
+        .reviews-see-more {
+            margin-top: 2.5rem;
+        }
+        .reviews-see-more a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #fff;
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 0.85rem 1.5rem;
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: var(--ink);
+            text-decoration: none;
+            transition: border-color 0.2s, box-shadow 0.2s, color 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+        .reviews-see-more a:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            box-shadow: 0 8px 20px rgba(17,101,242,0.15);
+        }
+
+        /* ──────────────────────────────────────────────────────────
+           CTA — charcoal w/ blue glow
+        ────────────────────────────────────────────────────────── */
+        .cta-section {
+            background: linear-gradient(135deg, var(--charcoal-deep) 0%, #0a1230 50%, var(--charcoal-deep) 100%);
+            color: #fff;
+            padding: 5rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(17,101,242,0.25) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-section h2 {
+            font-family: 'Bebas Neue', 'Inter', sans-serif;
+            font-size: clamp(2.85rem, 6.5vw, 5rem);
+            font-weight: 400;
+            letter-spacing: 0.015em;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 0.85rem;
+        }
+        .cta-section p.cta-lead {
+            color: #a8b3c8;
+            font-size: 1.1rem;
+            margin-bottom: 2.25rem;
+        }
+        .contact-direct-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--green-bright);
+            margin-bottom: 0.65rem;
+        }
+        .contact-direct-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--green-bright) 0%, var(--green) 50%, var(--green-deep) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            line-height: 1;
+            filter: drop-shadow(0 0 18px rgba(140,203,18,0.4));
+        }
+        .cta-meta {
+            margin-top: 2.25rem;
+            font-size: 0.88rem;
+            color: #8a96ac;
+        }
+        .cta-meta span { color: var(--green-bright); margin: 0 0.45rem; }
+
+        /* ──────────────────────────────────────────────────────────
+           FOOTER
+        ────────────────────────────────────────────────────────── */
+        footer {
+            background: var(--charcoal-deep);
+            color: #8a96ac;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+        footer p { font-size: 0.85rem; line-height: 1.7; }
+        footer p:first-child { color: #c8d4e6; font-weight: 600; }
+
+        /* ──────────────────────────────────────────────────────────
+           RESPONSIVE
+        ────────────────────────────────────────────────────────── */
+        @media (max-width: 1080px) {
+            .service-row h3 { min-width: 14rem; font-size: 1.6rem; }
+            .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            nav.primary { display: none; }
+            .call-cta { display: none; }
+            .hamburger { display: flex; }
+
+            .hero { padding: 0 1.25rem 0; }
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 0;
+                min-height: 0;
+            }
+            .hero-content {
+                order: 2;
+                padding: 2rem 0 3.5rem;
+            }
+            .hero-media {
+                order: 1;
+                aspect-ratio: 16 / 10;
+                max-height: 480px;
+                margin-left: calc(50% - 50vw);
+                margin-right: calc(50% - 50vw);
+                align-self: auto;
+            }
+            .hero-lead { font-size: 1rem; }
+            .hero h1 { font-size: clamp(2.75rem, 11vw, 4rem); }
+
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+            .stats { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+            .reviews-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .header-content { padding: 0.7rem 1rem; gap: 0.75rem; }
+            .logo { width: 110px; height: 50px; }
+            .logo-img { height: 65px; }
+            .top-banner { font-size: 0.75rem; padding: 0.5rem 0.75rem; letter-spacing: 0.04em; }
+
+            .hero { padding: 0 1rem; }
+            .hero-content { padding: 1.75rem 0 3rem; }
+            .hero-eyebrow { font-size: 0.72rem; padding: 0.35rem 0.7rem; }
+            .hero-lead { font-size: 0.95rem; }
+            .hero-actions .btn { width: 100%; }
+            .hero-actions { flex-direction: column; gap: 0.65rem; }
+            .hero-media { aspect-ratio: 1 / 1; }
+
+            .services { padding: 3rem 1rem 3.5rem; }
+            .service-row {
+                gap: 1rem;
+                padding: 1.35rem 0.25rem;
+                flex-wrap: wrap;
+            }
+            .service-row:hover { padding-left: 0.25rem; padding-right: 0.25rem; }
+            .service-icon { width: 44px; height: 44px; border-radius: 11px; }
+            .service-icon svg { width: 22px; height: 22px; }
+            .service-row h3 {
+                font-size: 1.4rem;
+                min-width: 0;
+                flex: 1;
+            }
+            .service-row p {
+                flex: 1 1 100%;
+                font-size: 0.9rem;
+                padding-left: calc(44px + 1rem);
+                margin-top: -0.25rem;
+            }
+            .service-row-cta { display: none; }
+
+            .insurance-section { padding: 3rem 1rem 2.5rem; }
+            .ticker-logo img { height: 95px; width: 220px; }
+            .insurance-ticker::before, .insurance-ticker::after { width: 50px; }
+
+            .gallery { padding: 3rem 1rem 3rem; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.65rem; }
+            .stats-wrapper { padding: 1rem 1rem 3rem; }
+            .stats { gap: 0.25rem; padding-top: 1.5rem; }
+            .stat-box { padding: 1rem 0.5rem; }
+
+            .reviews-section { padding: 3rem 1rem 3.5rem; }
+            .review-card { padding: 1.35rem 1.2rem; }
+
+            .cta-section { padding: 3.5rem 1.25rem; }
+            .cta-section p.cta-lead { font-size: 1rem; }
+            .cta-meta { font-size: 0.82rem; }
+            .cta-meta span { display: inline-block; }
+
+            footer { padding: 2rem 1rem; }
+        }
+
+        @media (max-width: 380px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top emergency banner -->
+    <div class="top-banner">
+        <a href="tel:+19293315297">📞 24/7 Emergency Line — Call 929-331-5297</a>
+    </div>
+
+    <!-- Mobile overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Mobile nav -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <a href="#insurance" onclick="closeMobileNav()">Insurance</a>
+        <a href="#services" onclick="closeMobileNav()">Services</a>
+        <a href="#gallery" onclick="closeMobileNav()">Fleet</a>
+        <a href="#reviews" onclick="closeMobileNav()">Reviews</a>
+        <a href="#contact" onclick="closeMobileNav()">Contact</a>
+        <a href="tel:+19293315297" class="mobile-cta" onclick="closeMobileNav()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call 929-331-5297
+        </a>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo" aria-label="Towmotive home">
+                <img class="logo-img" src="tmo-webimgs/TOWMOtive%20(2).png" alt="Towmotive" />
+            </a>
+
+            <nav class="primary" aria-label="Primary">
+                <a href="#insurance">Insurance</a>
+                <a href="#services">Services</a>
+                <a href="#gallery">Fleet</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <a href="tel:+19293315297" class="call-cta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Call Now
+            </a>
+
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <h1>
+                    <span class="accent">Reliable Towing</span><br>
+                    &amp; Roadside <span class="accent-green">Assistance.</span>
+                </h1>
+                <p class="hero-lead">
+                    Stranded on the road? We've got you covered. Whether it's a breakdown, accident recovery, or roadside assistance — our team is one call away. Fast, professional, and affordable towing whenever you need it.
+                </p>
+                <div class="hero-actions">
+                    <a href="tel:+19293315297" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Call 929-331-5297
+                    </a>
+                    <a href="#services" class="btn btn-secondary">See Services</a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-avatars" aria-hidden="true">
+                        <span>JM</span><span>SM</span><span>RC</span><span>AL</span><span>EJ</span>
+                    </div>
+                    <div class="trust-text">
+                        <strong>500+ happy customers</strong>
+                        <small><span class="trust-stars">★ ★ ★ ★ ★</span> · 4.9 average on Google</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-media">
+                <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-label="Towmotive tow truck">
+                    <source src="Video%20Project%204.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSURANCE CAROUSEL -->
+    <section id="insurance" class="insurance-section">
+        <div class="insurance-inner">
+            <div class="section-header">
+                <span class="section-eyebrow">Trusted partners</span>
+                <h2 class="section-title">Insurance-approved. <span class="accent">Hassle-free.</span></h2>
+                <p class="section-subtitle">We work with all major insurance providers and handle the paperwork so you don't have to. We also accept cash and card for fast service.</p>
+            </div>
+
+            <div class="insurance-ticker" aria-label="Accepted insurance providers">
+                <div class="insurance-ticker-track">
+                    <span class="ticker-logo"><img src="tmo-webimgs/1.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/2.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/3.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/4.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/5.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/6.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/7.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/8.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/9.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/10.png" alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/1.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/2.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/3.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/4.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/5.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/6.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/7.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/8.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/9.png"  alt="Insurance provider" /></span>
+                    <span class="ticker-logo"><img src="tmo-webimgs/10.png" alt="Insurance provider" /></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+        <div class="services-inner">
+            <div class="section-header">
+                <span class="section-eyebrow">What we do</span>
+                <h2 class="section-title">Built for every job, <span class="accent">big or small.</span></h2>
+                <p class="section-subtitle">From quick roadside fixes to full vehicle recovery, our crews carry the right equipment for every situation.</p>
+            </div>
+
+            <div class="service-list">
+                <article class="service-row">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+                    </div>
+                    <h3>Light Duty Towing</h3>
+                    <p>Fast towing for cars, SUVs, and light trucks. Flatbed and wheel-lift options.</p>
+                    <div class="service-row-cta" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                    </div>
+                </article>
+
+                <article class="service-row">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3>Roadside Assistance</h3>
+                    <p>Jump starts, tire changes, fuel delivery, and lockouts handled on the spot.</p>
+                    <div class="service-row-cta" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                    </div>
+                </article>
+
+                <article class="service-row">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg>
+                    </div>
+                    <h3>Winch Services</h3>
+                    <p>Professional winching for vehicles stuck off-road, in ditches, or tight spots.</p>
+                    <div class="service-row-cta" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                    </div>
+                </article>
+
+                <article class="service-row">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22V12a9 9 0 0 1 18 0v10"/><path d="M3 17h18"/><path d="M12 3v2"/><path d="M7 22h10"/></svg>
+                    </div>
+                    <h3>Long Distance Towing</h3>
+                    <p>Secure transport over longer hauls with proper tie-downs and clear updates.</p>
+                    <div class="service-row-cta" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                    </div>
+                </article>
+
+                <article class="service-row">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <h3>Commercial Fleets</h3>
+                    <p>Priority dispatch and maintenance agreements for businesses that can't slow down.</p>
+                    <div class="service-row-cta" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery">
+        <div class="gallery-container">
+            <div class="section-header">
+                <span class="section-eyebrow">Our fleet</span>
+                <h2 class="section-title">Built to <span class="accent">handle anything.</span></h2>
+                <p class="section-subtitle">A look at the trucks and crews behind every job we run.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="tmo-webimgs/Untitled Project - illustrationImage.png" alt="Towmotive fleet" loading="lazy"></div>
+                <div class="gallery-item"><img src="tmo-webimgs/04.jpg" alt="Towmotive fleet" loading="lazy"></div>
+                <div class="gallery-item"><img src="tmo-webimgs/03.jpg" alt="Towmotive fleet" loading="lazy"></div>
+                <div class="gallery-item"><img src="tmo-webimgs/842.jpg" alt="Towmotive fleet" loading="lazy"></div>
+                <div class="gallery-item"><img src="tmo-webimgs/o2.jpg" alt="Towmotive fleet" loading="lazy"></div>
+                <div class="gallery-item"><img src="tmo-webimgs/348s.jpg" alt="Towmotive fleet" loading="lazy"></div>
+                <div class="gallery-item"><img src="tmo-webimgs/tmotiv.jpg" alt="Towmotive fleet" loading="lazy"></div>
+                <div class="gallery-item"><img src="tmo-webimgs/o6.jpg" alt="Towmotive fleet" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS (charcoal continuation) -->
+    <div class="stats-wrapper">
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Vehicles Towed</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">&lt; 5 min</div>
+                <div class="stat-label">Avg. Response</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">4.9 ★</div>
+                <div class="stat-label">Customer Rating</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">24 / 7</div>
+                <div class="stat-label">Always Available</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="reviews-section">
+        <div class="reviews-inner">
+            <div class="section-header">
+                <span class="section-eyebrow">Client stories</span>
+                <h2 class="section-title">Trusted by <span class="accent">thousands.</span></h2>
+                <p class="section-subtitle">Real results from real customers. Here's what people are saying about us.</p>
+            </div>
+
+            <div class="google-badge">
+                <span class="google-logo">G</span>
+                <span>4.9 ★ — Based on 500+ verified reviews</span>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">JM</div>
+                        <div class="reviewer-info">
+                            <h4>Julio Medina</h4>
+                            <div class="reviewer-company">March 2026</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Broke down on the highway at midnight. Towmotive was there when I needed them. Shoutout Joshua from Towmotive."</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">SM</div>
+                        <div class="reviewer-info">
+                            <h4>Sarah Martinez</h4>
+                            <div class="reviewer-company">January 2026</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"We use these guys for all our business towing needs. Great people and great team!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">RC</div>
+                        <div class="reviewer-info">
+                            <h4>Roberto Chen</h4>
+                            <div class="reviewer-company">November 2025</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Worked everything out with my insurance and told me how it went after. Lifesavers!!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">AL</div>
+                        <div class="reviewer-info">
+                            <h4>Adam Lee</h4>
+                            <div class="reviewer-company">August 2025</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"No complaints here! Super professional and friendly guys!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">DW</div>
+                        <div class="reviewer-info">
+                            <h4>David Wilson</h4>
+                            <div class="reviewer-company">May 2025</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"NY mfs stole my wheels but these guys got me back on the road quick."</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">EJ</div>
+                        <div class="reviewer-info">
+                            <h4>Emma Johnson</h4>
+                            <div class="reviewer-company">February 2025</div>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"The best in New York!"</p>
+                </div>
+            </div>
+
+            <div class="reviews-see-more">
+                <a href="https://www.google.com/maps/search/?api=1&query=Towmotive" target="_blank" rel="noopener">See all reviews on Google →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta-section">
+        <div class="cta-inner">
+            <h2>Need help right now?</h2>
+            <p class="cta-lead">Tap the number below — we'll have a truck on the way before you finish telling us the story.</p>
+            <p class="contact-direct-label">Call or text this number</p>
+            <a class="contact-direct-number" href="tel:+19293315297">929-331-5297</a>
+            <p class="cta-meta">99% response within 15 min<span>•</span>Fully licensed &amp; insured<span>•</span>Transparent pricing</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Towmotive · Licensed | Insured | Bonded</p>
+        <p>Available 24/7/365 · Proudly serving the New York Tri-State Area for 8+ years</p>
+    </footer>
+
+    <script>
+        const hamburger     = document.getElementById('hamburger');
+        const mobileNav     = document.getElementById('mobileNav');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+
+        function openMobileNav() {
+            hamburger.classList.add('open');
+            mobileNav.classList.add('open');
+            mobileOverlay.classList.add('open');
+            hamburger.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileNav() {
+            hamburger.classList.remove('open');
+            mobileNav.classList.remove('open');
+            mobileOverlay.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.contains('open') ? closeMobileNav() : openMobileNav();
+        });
+        mobileOverlay.addEventListener('click', closeMobileNav);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
+    </script>
+</body>
+</html>
